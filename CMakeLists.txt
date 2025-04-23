@@ -1,26 +1,27 @@
 cmake_minimum_required(VERSION 3.15)
 project(MyModel LANGUAGES CXX)
 
+# Встановлюємо стандарт C++
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
+# Збираємо DLL-бібліотеку MyModel
 add_library(MyModel SHARED
-        src/DllMain.cpp
         src/MyModel.cpp
-        include/vs_main.h
+        src/DllMain.cpp
 )
 
-# макрос для експорту/імпорту символів
+# Визначаємо макрос експорту символів DLL
 if(WIN32)
     target_compile_definitions(MyModel PRIVATE MYMODEL_EXPORTS)
 endif()
 
-# Куди шукати заголовки
-target_include_directories(MyModel
-        PRIVATE
-        "${CMAKE_SOURCE_DIR}/include"  # для pm_PMSystem.h, sv_interplr.h
-        "${CMAKE_SOURCE_DIR}/src"      # для твоїх власних *.h у src/
+# Підключаємо шляхи до заголовків (твоїх та зовнішніх)
+target_include_directories(MyModel PRIVATE
+        "${CMAKE_SOURCE_DIR}/include"
+        "${CMAKESource_DIR}/include/external"
 )
+
 
 # якщо треба лінкуватися з бібліотекою платформи
 # target_link_libraries(MyModel PRIVATE PMSystemLib)
