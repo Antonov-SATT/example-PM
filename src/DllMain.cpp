@@ -6,7 +6,7 @@
 #include <windows.h>
 #endif
 
-#include "MyModel.h"
+#include "MyModel/MyModel.h"
 
 // Статичний глобальний об'єкт моделі
 static MyModel g_myModel;

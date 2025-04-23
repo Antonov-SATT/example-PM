@@ -2,7 +2,7 @@
 // Created by zav3330 on 23.04.2025.
 //
 
-#include "MyModel.h"
+#include "MyModel/MyModel.h"
 
 // Конструктор: ініціалізуємо змінні за потреби
 MyModel::MyModel() {
