@@ -24,7 +24,7 @@ long MyModel::GetSystemID() const {
 }
 
 // Реєстрація вхідних (читаних) змінних моделі
-int MyModel::RegReadVariables() const {
+int MyModel::RegReadVariables() {
     // TODO: встановити зв'язок між локальними змінними моделі та параметрами моделювання,
     // значення яких модель зчитує в процесі моделювання&#8203;:contentReference[oaicite:18]{index=18}.
     // Використовуйте для цього глобальні функції середовища, наприклад CnReadVal/CnReadValEx.
@@ -35,7 +35,7 @@ int MyModel::RegReadVariables() const {
 }
 
 // Реєстрація вихідних (записуваних) змінних моделі
-int MyModel::RegWriteVariables() const {
+int MyModel::RegWriteVariables() {
     // TODO: встановити зв'язок між локальними змінними моделі та параметрами моделювання,
     // значення яких змінюються цією моделлю&#8203;:contentReference[oaicite:19]{index=19}.
     // Використовуйте глобальні функції на кшталт CnWriteVal/CnWriteValEx для вихідних параметрів.
@@ -71,7 +71,7 @@ int MyModel::ResetParam(long iterationIndex, long* plMsgCode) {
 }
 
 // Повернення приводів (пристрою) в початковий стан
-int MyModel::ResetDevice(long* plMsgCode) {
+int MyModel::ResetDevice(long iterationIndex, long* plMsgCode) {
     // TODO: реалізувати повернення апаратної частини моделі (приводів) у початкове положення.
     // Викликається системою при встановленні початкового стану апаратури.
     // Якщо пристрій має рухомі частини, які потребують часу для повернення,
